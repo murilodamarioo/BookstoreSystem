@@ -1,5 +1,6 @@
 package Entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -8,16 +9,16 @@ public class Book {
     private String title;
     private final Author author;
     private boolean available;
-    private final Date registerDate;
-    private Date updateDate;
+    private final LocalDate registerDate;
+    private LocalDate updateDate;
 
     public Book(String title, Author author) {
         this.id = UUID.randomUUID().toString();
         this.title = title;
         this.author = author;
         this.available = true;
-        this.registerDate = new Date();
-        this.updateDate = new Date();
+        this.registerDate = LocalDate.now();
+        this.updateDate = LocalDate.now();
     }
 
     public String getId() {
@@ -36,17 +37,17 @@ public class Book {
         return available;
     }
 
-    public Date getRegisterDate() {
+    public LocalDate getRegisterDate() {
         return registerDate;
     }
 
-    public Date getUpdateDate() {
+    public LocalDate getUpdateDate() {
         return updateDate;
     }
 
     public void setTitle(String title) {
         this.title = title;
-        this.updateDate = new Date();
+        this.updateDate = LocalDate.now();
     }
 
     public void setAvailable(boolean available) {
