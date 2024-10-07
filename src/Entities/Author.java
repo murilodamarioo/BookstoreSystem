@@ -1,14 +1,14 @@
 package Entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class Author {
     private final String id;
     private String name;
-    private String birthDate;
+    private LocalDate birthDate;
 
-    public Author(String name, String birthDate) {
+    public Author(String name, LocalDate birthDate) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.birthDate = birthDate;
@@ -22,7 +22,7 @@ public class Author {
         return name;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -30,7 +30,7 @@ public class Author {
         this.name = name;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
