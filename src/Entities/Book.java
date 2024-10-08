@@ -1,7 +1,8 @@
 package Entities;
 
 import java.time.LocalDate;
-import java.util.Date;
+
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Book {
@@ -11,6 +12,8 @@ public class Book {
     private boolean available;
     private final LocalDate registerDate;
     private LocalDate updateDate;
+
+    final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Book(String title, Author author) {
         this.id = UUID.randomUUID().toString();
@@ -56,13 +59,13 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Livro{" +
-                "\nid = " + id +
-                ",\n Título = " + title +
-                ",\n Autor = " + author +
-                ",\n Disponível = " + (available ? "Sim" : "Não") +
-                ",\n Data cadastro = " + registerDate +
-                ",\n Data Atualização = " + updateDate +
+        return "Book {" +
+                "\n Id = " + id +
+                ",\n Title = " + title +
+                ",\n Available = " + (available ? "Yes" : "No") +
+                ",\n Register date = " + registerDate.format(formatter) +
+                ",\n Update date = " + updateDate.format(formatter) +
+                ",\n " + author +
                 "\n}";
     }
 }

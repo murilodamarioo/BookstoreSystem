@@ -1,12 +1,15 @@
 package Entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Author {
     private final String id;
     private String name;
     private LocalDate birthDate;
+
+    final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Author(String name, LocalDate birthDate) {
         this.id = UUID.randomUUID().toString();
@@ -36,10 +39,10 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author{" +
-                "\n id = " + id +
-                ",\n nome = " + name +
-                ",\n birthDate =" + birthDate +
-                "\n}";
+        return "Author {" +
+                "\n  Id = " + id +
+                ",\n  Name = " + name +
+                ",\n  Birthdate = " + birthDate.format(formatter) +
+                "\n }";
     }
 }
