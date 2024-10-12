@@ -6,16 +6,17 @@ import java.util.UUID;
 public class Loan {
     private String id;
     private Book book;
-    private String userName;
+    private String username;
     private LocalDate loanDate;
     private LocalDate returnDate;
     private boolean active;
 
-    public Loan(Book book, String userName) {
+    public Loan(Book book, String username) {
         this.id = UUID.randomUUID().toString();
         this.book = book;
-        this.userName = userName;
+        this.username = username;
         this.loanDate = LocalDate.now();
+        this.returnDate = LocalDate.now().plusDays(5);
         this.active = true;
     }
 
@@ -28,7 +29,7 @@ public class Loan {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public LocalDate getLoanDate() {
@@ -51,12 +52,12 @@ public class Loan {
 
     @Override
     public String toString() {
-        return "Empréstimo {" +
-                "\n id = " + id +
-                "\n Livro = " + book +
-                "\n Usuário = " + userName +
-                "\n Data devolução = " + returnDate +
-                "\n Ativo = " + active +
+        return "Loan {" +
+                "\n Id = " + id +
+                "\n " + book +
+                "\n User = " + username +
+                "\n Return date = " + returnDate +
+                "\n Active = " + active +
                 "\n}";
     }
 }
